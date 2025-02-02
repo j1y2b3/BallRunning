@@ -10,7 +10,7 @@ import level
 level_file_judge=lambda file_name:len(os.path.splitext(file_name)[0])==7 and os.path.splitext(file_name)[1]=='.py' and os.path.splitext(file_name)[0][0:5]=='level'
 levels_name_list=[os.path.splitext(file_name)[0] for file_name in os.listdir(f'{path.path}\\levels\\') if level_file_judge(file_name)]
 '''
-level_name_pattern=re.compile('^level\d{2}\.py$')
+level_name_pattern=re.compile(r'^level\d{2}\.py$')
 files_list=os.listdir(f'{path.path}\\levels\\')
 level_file_judge=lambda file_name:re.match(level_name_pattern,file_name)!=None
 
