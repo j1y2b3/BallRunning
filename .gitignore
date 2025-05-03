@@ -1,4 +1,3 @@
 __pycache__/
-programme/
-exe_update.py
+Release/
 *.log

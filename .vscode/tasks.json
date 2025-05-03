@@ -1,0 +1,36 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "生成Release",
+            "type": "shell",
+            "command": "cmd",
+            "args": [
+                "/C",
+                "pyinstaller -i files\\ricon.ico -n 小球跑酷 --windowed --onedir --clean main.py",
+                //"& del /Q Release\\*",
+                //"& rmdir /S /Q Release",
+                "& powershell Remove-Item -Path Release -Recurse",
+                "& mkdir Release",
+                "& move /Y dist\\小球跑酷\\小球跑酷.exe Release\\小球跑酷.exe",
+                "& move /Y dist\\小球跑酷\\_internal Release\\_internal",
+                "& xcopy /Y /I files Release\\files",
+                "& xcopy /Y /I levels Release\\levels",
+                "& xcopy /Y /I levels Release\\_internal\\levels",
+                "& del /Q 小球跑酷.spec",
+                //"& del /Q dist\\*",
+                //"& rmdir /S /Q build dist",
+                "& powershell Remove-Item -Path build -Recurse",
+                "& powershell Remove-Item -Path dist -Recurse",
+                "& powershell Compress-Archive -Path Release\\* -DestinationPath Release\\Release.zip"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        }
+    ]
+}

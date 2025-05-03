@@ -2,11 +2,6 @@ import pygame
 import pymunk
 
 import data
-import tool
-
-def ball_enter_rect(rect):
-
-    return tool.collide_color(self.win,rect,level.data.ball_color)
 
 class box:
 
